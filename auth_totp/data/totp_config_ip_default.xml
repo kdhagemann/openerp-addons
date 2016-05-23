@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+*******************************************************************************
+* 2016-05-13, kdhagemann@memocomp.de                                          *
+* (c) Klaus-D. Hagemann, Dortmund, Germany                                    *
+*******************************************************************************
+-->
+<openerp>
+    <data>
+        <record id="initial_pass_all_rule" model="totp.config_ip">
+            <field name="sequence">999</field>
+            <field name="ip_type">host</field>
+            <field name="ip_value">*</field>
+            <field name="login_mode">nototp</field>
+        </record>		
+    </data>
+</openerp>

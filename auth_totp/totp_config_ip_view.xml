@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+*******************************************************************************
+* 2016-05-13, kdhagemann@memocomp.de                                          *
+* (c) Klaus-D. Hagemann, Dortmund, Germany                                    *
+*******************************************************************************
+-->
+<openerp>
+    <data>
+        <record id="view_groups_form" model="ir.ui.view">
+            <field name="name">totp.config_ip.form</field>
+            <field name="model">totp.config_ip</field>
+            <field name="arch" type="xml">
+                <form string="TOTP IP Addresses" version="7.0">
+                    <field name="sequence"/>
+                    <field name="ip_type"/>
+                    <field name="ip_value" on_change="onchange_ip_value(ip_value, ip_type)"/>  <!-- on_change="onchange_ip_value(ip_value)" -->
+                    <field name="login_mode"/>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_totp_config_ip_tree" model="ir.ui.view">
+            <field name="name">totp.config_ip.tree</field>
+            <field name="model">totp.config_ip</field>
+            <field name="arch" type="xml">
+                <tree string="TOTP IP Addresses" editable="top">  <!--  create="true" delete="true" edit="true" -->
+                    <field name="sequence"/>
+                    <field name="ip_type"/>
+                    <field name="ip_value" on_change="onchange_ip_value(ip_value, ip_type)"/>  <!-- on_change="onchange_ip_value(ip_value)" -->
+                    <field name="login_mode"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_totp_config_ip" model="ir.actions.act_window">
+            <field name="name">TOTP IP Addresses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">totp.config_ip</field>
+            <field name="view_type">form</field>
+            <field name="help">Manage IP Addresses or -Networks which must (not) login using a TOTP Authentication.</field>
+        </record>
+
+        <menuitem action="action_totp_config_ip" id="menu_action_totp_config_ip" parent="base.menu_config" sequence="99" groups="base.group_no_one"/>
+
+    </data>
+</openerp>
+

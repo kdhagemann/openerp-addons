@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+*******************************************************************************
+* 2016-05-13, kdhagemann@memocomp.de                                          *
+* (c) Klaus-D. Hagemann, Dortmund, Germany                                    *
+*******************************************************************************
+-->
+<openerp>
+    <data>
+	
+        <!-- USER PREFERENCES SIMPLE FORM VIEW Section -->
+        <record model="ir.ui.view" id="view_users_simple_form_inherited">
+            <field name="name">res.users.preferences.form</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+            <field name="arch" type="xml">
+				<field name="signature" position="after">
+                    <group name="totp_secret_data">
+                        <field name="totp_login_secret_qr_image" widget="image" class="oe_left" readonly="1"/>
+                    </group>
+				</field>
+            </field>
+        </record>
+
+        <!-- USER PREFERENCES MAIN FORM VIEW Section -->
+        <record model="ir.ui.view" id="view_users_form_inherited">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Access Rights']" position='after'>
+                    <page string='TOTP Secret Code'>
+                        <group>
+                            <group name="totp_secret_data">
+                                <field name="totp_login_secret"  readonly="1"/>
+                                <field name="totp_login_secret_qr_image" widget="image" class="oe_left" readonly="1"/>
+                            </group>
+                            <group>
+                                <div class="oe_right oe_button_box">
+                                    <button name="generate_totp_secret" type="object"
+                                        string="Generate Secret Code" class="oe_highlight"/>
+                                    <button name="generate_totp_pin" type="object"
+                                        string="Display current TOTP" />
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+		
+    </data>
+</openerp>

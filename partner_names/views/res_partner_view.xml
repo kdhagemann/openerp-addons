@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- FORM VIEW Section -->
+        <record model="ir.ui.view" id="view_res_partner_form_inherited">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <h2>
+                        <field name="x_name2" placeholder="Name 2 (optional)" />
+                        <field name="x_name3" placeholder="Name 3 (optional)" />
+                    </h2>
+                </field>
+				<xpath expr="//notebook/page/field[@name='child_ids']/kanban/field[@name='name']" position="after">
+					<field name="x_name2"/>
+				</xpath>
+				<xpath expr="//table[@class='oe_kanban_table']/tr/td/h4/a/field[@name='name']" position="replace">
+					<field name="name"/><br/><field name="x_name2"/>
+				</xpath>
+            </field>
+        </record>
+		
+    </data>
+</openerp>
+

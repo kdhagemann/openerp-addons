@@ -2,6 +2,14 @@
 # OpenERP-Addons
 On this pages you will find some (hopefully) useful modules and AddOns for OpenERP / odoo.
 
+Recent projects:
+  * Login with time based onetime password (TOTP) authentication
+  
+    (Compatible with Google Authenticator Smartphone App)
+  * Partner names extension for two additional name fields
+  
+    (including search and display)
+
 ## About OpenERP / odoo
 
 OpenERP is an OpenSource/Free software Enterprise Resource Planning and

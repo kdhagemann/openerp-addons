@@ -7,10 +7,19 @@
 -->
 <openerp>
     <data>
+        <!-- this rule allows access from all clients to pass without TOTP -->
         <record id="initial_pass_all_rule" model="totp.config_ip">
             <field name="sequence">999</field>
             <field name="ip_type">host</field>
             <field name="ip_value">*</field>
+            <field name="login_mode">nototp</field>
+        </record>		
+        <!-- this rule allows from localhost to pass without TOTP 
+             which is useful in https proxy environments -->
+        <record id="initial_pass_localhost_rule" model="totp.config_ip">
+            <field name="sequence">998</field>
+            <field name="ip_type">host</field>
+            <field name="ip_value">127.0.0.1</field>
             <field name="login_mode">nototp</field>
         </record>		
     </data>

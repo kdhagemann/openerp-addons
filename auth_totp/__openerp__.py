@@ -68,7 +68,8 @@ the validity interval for a TOTP=30sec). Thus you are highly encouraged to run a
 Prerequisites
 -------------
 * install python package 'ipaddr' (see https://github.com/google/ipaddr-py) or use "$ apt-get install python-ipaddr"
-* install python package 'pyqrcode' (see https://pypi.python.org/pypi/PyQRCode) or use "$ python setup.py install" after download. For details see also http://pythonhosted.org/PyQRCode/
+* install python package 'pyqrcode' (see https://pypi.python.org/pypi/PyQRCode) via pypi or use "$ python setup.py install" after download. For details see also http://pythonhosted.org/PyQRCode/
+* install python package 'pypng' (see https://pypi.python.org/pypi/pypng/) via pypi or use "$ python setup.py install" after download.
 
 * module 'onetimepass' is shipped with this package, and is also available on https://github.com/tadeck/onetimepass . For details on 'onetimepass' see also http://stackoverflow.com/questions/8529265/google-authenticator-implementation-in-python
 * module 'six' is shipped with this package, and is also available on https://pythonhosted.org/six/
